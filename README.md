@@ -1,5 +1,5 @@
 # Sports-Timer
-An amazing timer to be used for sports
+An amazing timer to be used for sports.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
