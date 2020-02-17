@@ -72,9 +72,9 @@ class Stopwatch extends Component {
                 'Lap #' + lap+"  "+lapHours+":"+lapMinutes+":"+lapSeconds+":"+lapCentiseconds:
                 'Laps';
             return (
-                <div className="lap-display">
+                <div className="laps">
                     <li key={lap}>
-                        <p className="laps">{desc}</p>
+                        <p>{desc}</p>
                     </li>
                 </div>
 
