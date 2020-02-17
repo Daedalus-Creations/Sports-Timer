@@ -10,8 +10,8 @@ function App() {
       <header className="App-header">
         Daedalus Timer
       </header>
+        <Stopwatch />
         <Timer />
-        {/*<Timer />*/}
     </div>
   );
 }

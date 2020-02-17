@@ -6,21 +6,27 @@ class Timer extends Component {
     constructor(props){
         super(props);
         this.state = {
-            time : "05:00:00:00",
+            time : "00:05:00:00",
             timerOn: false,
-        }
+            default: "00:05:00:00"
+        };
         this.handleChange = this.handleChange.bind(this);
     }
     startTimer = () => {
-        this.setState({
-            timerOn: true,
-            time: this.state.time,
-        });
-        this.timer = setInterval(() => {
+        if(isNaN(this.parseTime(this.state.time))) {
+        }
+        else {
             this.setState({
-                time: this.timeToString(this.parseTime(this.state.time) - 10)
+                timerOn: true,
+                time: this.state.time,
+                default: this.state.time,
             });
-        }, 10);
+            this.timer = setInterval(() => {
+                this.setState({
+                    time: this.timeToString(this.parseTime(this.state.time) - 10)
+                });
+            }, 10);
+        }
     };
 
     stopTimer = () => {
@@ -33,7 +39,7 @@ class Timer extends Component {
 
     resetTimer = () => {
         this.setState({
-            time: "05:00:00:00",
+            time: this.state.default,
             timerOn: this.state.timerOn,
         });
     };
@@ -59,7 +65,7 @@ class Timer extends Component {
             <div className="Timer">
                 <div className="Timer-header">Timer</div>
                 <div className="Timer-display">
-                    <textarea className="Timer-box" value={this.state.time} onChange={this.handleChange} />
+                    <textarea className="Timer-box" disabled={this.state.timerOn} value={this.state.time} onChange={this.handleChange} />
                 </div>
                 {this.state.timerOn === false && (
                     <button onClick={this.startTimer}>Start</button>
