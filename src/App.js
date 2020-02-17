@@ -8,10 +8,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        Daedalus Timer
+        Daedalus Sports Timer
       </header>
-        <Stopwatch />
+
         <Timer />
+
+        <Stopwatch />
     </div>
   );
 }

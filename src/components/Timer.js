@@ -33,7 +33,7 @@ class Timer extends Component {
                         alert("Countdown ended");
                     }
 
-                
+
             }, 10);
         }
     };

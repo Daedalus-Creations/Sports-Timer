@@ -7,10 +7,16 @@ class Stopwatch extends Component {
         this.state = {
             time: 0,
             timerOn: false,
+            previousLapTime: 0,
+            numLaps: 0,
+            lapTimes: [],
         };
 
     }
-
+    wrapperStartFunction = () =>{
+        this.startTimer()
+        this.lapTimer()
+    }
     startTimer = () => {
         this.setState({
             timerOn: true,
@@ -31,18 +37,49 @@ class Stopwatch extends Component {
         clearInterval(this.timer)
     };
 
+    lapTimer = () => {
+        this.setState({
+            lapTimes: this.state.lapTimes.concat(this.state.time - this.state.previousLapTime),
+            previousLapTime: this.state.time,
+            numLaps: this.state.numLaps + 1,
+        })
+    }
+
     resetTimer = () => {
         this.setState({
-            time: 0
+            time: 0,
+            previousLapTime: 0,
+            numLaps: 0,
+            lapTimes: [],
         });
     };
 
     render() {
-        const { time } = this.state;
+        const {time} = this.state;
+        const lapTimes = this.state.lapTimes;
         let centiseconds = ("0" + (Math.floor(time / 10) % 100)).slice(-2);
         let seconds = ("0" + (Math.floor(time / 1000) % 60)).slice(-2);
         let minutes = ("0" + (Math.floor(time / 60000) % 60)).slice(-2);
         let hours = ("0" + Math.floor(time / 3600000)).slice(-2);
+
+        const laps = lapTimes.map((step, lap) => {
+            let lapCentiseconds = ("0" + (Math.floor(step / 10) % 100)).slice(-2);
+            let lapSeconds = ("0" + (Math.floor(step / 1000) % 60)).slice(-2);
+            let lapMinutes = ("0" + (Math.floor(step / 60000) % 60)).slice(-2);
+            let lapHours = ("0" + Math.floor(step / 3600000)).slice(-2);
+
+            const desc = lap ?
+                'Lap #' + lap+"  "+lapHours+":"+lapMinutes+":"+lapSeconds+":"+lapCentiseconds:
+                'Laps';
+            return (
+                <div>
+                    <li key={lap}>
+                        <p>{desc}</p>
+                    </li>
+                </div>
+
+            );
+        });
         return (
             <div className="Stopwatch">
                 <div className="Stopwatch-header">Stopwatch</div>
@@ -50,10 +87,13 @@ class Stopwatch extends Component {
                     {hours} : {minutes} : {seconds} : {centiseconds}
                 </div>
                 {this.state.timerOn === false && this.state.time === 0 && (
-                    <button onClick={this.startTimer}>Start</button>
+                    <button onClick={this.wrapperStartFunction} >Start</button>
                 )}
                 {this.state.timerOn === true && (
                     <button onClick={this.stopTimer}>Stop</button>
+                )}
+                {this.state.timerOn === true && (
+                    <button onClick={this.lapTimer}>Lap</button>
                 )}
                 {this.state.timerOn === false && this.state.time > 0 && (
                     <button onClick={this.startTimer}>Resume</button>
@@ -61,8 +101,12 @@ class Stopwatch extends Component {
                 {this.state.timerOn === false && this.state.time > 0 && (
                     <button onClick={this.resetTimer}>Reset</button>
                 )}
+                <ul>{laps}</ul>
             </div>
-        );
+    )
+
+
     }
 }
+
 export default Stopwatch;

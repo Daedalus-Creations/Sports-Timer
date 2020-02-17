@@ -72,6 +72,10 @@
   font-weight: bold;
 }
 
+ul{
+  list-style-type:none;
+}
+
 button {
   background-color: #202b33;
   border: solid 1px transparent;
