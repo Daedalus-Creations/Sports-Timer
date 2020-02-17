@@ -23,6 +23,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 40px 0;
 }
 
 .App-link {
@@ -132,4 +133,9 @@ button:hover {
 .Timer-time {
   font-size: 36px;
   margin: 5px 0;
+}
+
+.lap-display {
+  margin: 20px;
+  background-color: dimgrey;
 }

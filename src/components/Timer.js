@@ -30,9 +30,8 @@ class Timer extends Component {
                 } else {
                         clearInterval(this.timer);
                         this.setState({ timerOn: false });
-                        alert("Countdown ended");
+                        setTimeout(() => {alert("Countdown ended");},10);
                     }
-
 
             }, 10);
         }
