@@ -22,9 +22,18 @@ class Timer extends Component {
                 default: this.state.time,
             });
             this.timer = setInterval(() => {
-                this.setState({
-                    time: this.timeToString(this.parseTime(this.state.time) - 10)
-                });
+                const numericalTime = this.parseTime(this.state.time) - 10;
+                if (numericalTime >= 0){
+                    this.setState({
+                        time: this.timeToString(numericalTime),
+                })
+                } else {
+                        clearInterval(this.timer);
+                        this.setState({ timerOn: false });
+                        alert("Countdown ended");
+                    }
+
+                
             }, 10);
         }
     };
