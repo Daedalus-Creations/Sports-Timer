@@ -18,6 +18,7 @@ class Timer extends Component {
     startTimer = () => {
         //Catch null case
         if(isNaN(this.parseTime(this.state.time))) {
+            alert("Input Invalid");
         }
         else {
             //Update state variables
