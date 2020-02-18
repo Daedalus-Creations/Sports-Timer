@@ -68,8 +68,8 @@ class Stopwatch extends Component {
             numLaps: this.state.numLaps + 1,
         });
 
-        for(var i = 0;i<100;i++)
-            setTimeout(() =>{window.scrollBy(0,1)},1);
+        for(var i = 0;i<100;i++){
+            setTimeout(() =>{window.scrollBy(0,1)},1);}
     };
 
     /*

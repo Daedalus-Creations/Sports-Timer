@@ -9,7 +9,7 @@ function App() {
         <header className="App-header">
             Daedalus Sports Timer
         </header>
-        <img src={process.env.PUBLIC_URL + "wings.png"} alt="Logo"/>;
+        <img id="logo" src={process.env.PUBLIC_URL + "wings.png"} alt="Logo"/>;
         <div className="Timer-div">
             <Timer />
         </div>
