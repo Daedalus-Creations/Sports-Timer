@@ -66,7 +66,10 @@ class Stopwatch extends Component {
             previousLapTime: this.state.time,
             //Increments count
             numLaps: this.state.numLaps + 1,
-        })
+        });
+
+        for(var i = 0;i<100;i++)
+            setTimeout(() =>{window.scrollBy(0,1)},1);
     };
 
     /*
