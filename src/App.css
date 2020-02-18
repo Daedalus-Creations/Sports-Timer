@@ -65,6 +65,7 @@
 }
 .Timer {
   padding-top: 10px;
+  height: 100%;
 }
 
 .Timer-header,
