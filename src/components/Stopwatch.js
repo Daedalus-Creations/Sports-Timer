@@ -123,9 +123,11 @@ class Stopwatch extends Component {
             <div className="Stopwatch">
                 <div className="Stopwatch-header">Stopwatch</div>
                 <div className="Stopwatch-display">
-                    {hours} : {minutes} : {seconds} : {centiseconds}
+                    <div className="Stopwatch-box">
+                        {hours}:{minutes}:{seconds}:{centiseconds}
+                    </div>
                 </div>
-                <!-- Determines which button are shown, as well was what buttons do -->
+                {/*Determines which button are shown, as well was what buttons do */}
                 {this.state.timerOn === false && this.state.time === 0 && (
                     <button onClick={this.wrapperStartFunction} >Start</button>
                 )}
@@ -141,7 +143,7 @@ class Stopwatch extends Component {
                 {this.state.timerOn === false && this.state.time > 0 && (
                     <button onClick={this.resetTimer}>Reset</button>
                 )}
-                <!-- Also displays the list of laps -->
+                {/*Also displays the list of laps*/}
                 <ul>{laps}</ul>
             </div>
     )

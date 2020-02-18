@@ -94,7 +94,7 @@ class Timer extends Component {
                 <div className="Timer-display">
                     <textarea className="Timer-box" disabled={this.state.timerOn} value={this.state.time} onChange={this.handleChange} />
                 </div>
-                <!-- Determines which buttons to show and also button functionality -->
+                {/*Determines which buttons to show and also button functionality*/}
                 {this.state.timerOn === false && (
                     <button onClick={this.startTimer}>Start</button>
                 )}
