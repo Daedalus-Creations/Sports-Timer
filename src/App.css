@@ -12,6 +12,7 @@
   background-image : url(/background-paper.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  padding-bottom: 50px;
 }
 
 .App-logo {
@@ -41,7 +42,6 @@
 
 .Stopwatch-div {
   margin-top: 50px;
-  margin-bottom: 200px;
   display: flex;
   justify-content: center;
 }
@@ -67,7 +67,7 @@
   margin-left: 30px;
   margin-right: 30px;
   border: 2px solid white;
-  border-radius: 0px;
+  border-radius: 0;
   padding: 20px;
   width: 500px;
   /*background-color: rgb(22, 27, 31);*/
